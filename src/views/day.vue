@@ -5,7 +5,7 @@
 
 
 <template>
-  <h1>Dayfhfshfhkhsffhkshkfs</h1>
+  <h1>Day</h1>
 </template>
 
 
