@@ -35,7 +35,7 @@ let messages = [
 
       <v-card width="4000">
 
-        <v-img height="500" src="https://images.unsplash.com/photo-1519750783826-e2420f4d687f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJldHR5JTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" cover class="text-white">
+        <v-img height="200" src="https://images.unsplash.com/photo-1519750783826-e2420f4d687f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJldHR5JTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" cover class="text-white">
 
           <v-toolbar color="rgba(0, 0, 0, 0)" theme="dark">
 
