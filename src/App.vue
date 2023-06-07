@@ -8,6 +8,8 @@ const d = new Date()
 
 let year = d.getFullYear()
 
+let k = d
+
 let timeTab = [{
         tab: null,
         items: ['Home', 'Week', 'Month'],
