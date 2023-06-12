@@ -2,19 +2,17 @@
 
 let slides = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
+let slideCaptions = ['']
+
 let icons = ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram']
 
-const d = new Date()
+let d = new Date();
 
-let year = d.getFullYear()
-
-let k = d
-
-let timeTab = [{
-        tab: null,
-        items: ['Home', 'Week', 'Month'],
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-}]
+function addTodo () {
+        todos.value.push({
+            text: newTodo.value
+        })
+}
 
 let messages = [
         {
@@ -38,11 +36,10 @@ let messages = [
       ]
 
 async function test() {
-  let result = await fetch("https://holidays.abstractapi.com/v1/?api_key=1655f53d1cdd40048392782e5a54db11&country=US&year=2023&month=6&day=5");
+  let result = await fetch("https://holidays.abstractapi.com/v1/?api_key=1655f53d1cdd40048392782e5a54db11&country=US&year=");
 
   console.log(result)
 }
-
 </script>
 
 
@@ -55,90 +52,18 @@ async function test() {
 
     <v-icon icon="md:event"></v-icon>
 
-    <v-toolbar-title>Student Holiday Calendar</v-toolbar-title>
+    <v-toolbar-title class="bruh">Student Holiday Calendar</v-toolbar-title>
 
     <v-spacer></v-spacer>
 
-      <v-tabs v-model="tab" align-tabs="title">
-
-        <v-tab>
-          <router-link to="/" class="timenav">Home</router-link>
-        </v-tab>
-
-        <v-tab>
-          <router-link to="/Day" class="timenav">Day</router-link>
-        </v-tab>
-
-        <v-tab>
-          <router-link to="/Week" class="timenav">Week</router-link>
-        </v-tab>
-
-      </v-tabs>
-
   </v-toolbar>
-
-  <v-window v-model="tab">
-
-    <v-window-item v-for="item in items" :key="item" :value="item">
-
-      <v-card flat>
-
-        <v-card-text v-text="text"></v-card-text>
-
-      </v-card>
-
-    </v-window-item>
-
-  </v-window>
 
   </v-card>
 
-  <!--
-
-    <div class="text-center">
-      <div>
-        <v-btn class="ma-2" color="primary">
-          Accept
-        </v-btn>
-
-        <v-btn class="ma-2" color="red">
-          Decline
-        </v-btn>
-
-        <v-btn class="ma-2">
-          Cancel
-        </v-btn>
-      </div>
-
-      <div>
-        <v-btn class="ma-2" color="orange-darken-2">
-          Back
-        </v-btn>
-      </div>
-
-      <div>
-        <v-btn
-          class="ma-2"
-          variant="text"
-          icon="mdi-thumb-up"
-          color="blue-lighten-2"
-        ></v-btn>
-
-        <v-btn
-          class="ma-2"
-          variant="text"
-          icon="mdi-thumb-down"
-          color="red-lighten-2"
-        ></v-btn>
-      </div>
-    </div>
-
-  -->
-
-  <v-carousel width="200" height="400" hide-delimiters progress="blue-lighten-2">
+  <v-carousel width="200" height="400" hide-delimiters progress="blue-lighten-2" class="bruh2">
 
       <template v-slot:prev="{ props }">
-        <v-btn variant="elevated" color="success" @click="props.onClick">Previous</v-btn>
+        <v-btn variant="elevated" color="success" @click="props.onClick">Back</v-btn>
       </template>
 
       <template v-slot:next="{ props }">
@@ -152,7 +77,7 @@ async function test() {
           <div class="d-flex fill-height justify-center align-center">
 
             <div class="text-h2">
-              {{ slide }} 
+              {{slide}}
             </div>
 
           </div>
@@ -164,8 +89,6 @@ async function test() {
     </v-carousel>
 
     <!--Dayyyyyyuhhh-->
-
-    <h1>Day</h1>
 
     <v-container>
 
@@ -187,7 +110,7 @@ async function test() {
 
                 -->
 
-                <v-toolbar-title class="text-h6"> dayOfWeek </v-toolbar-title>
+                <v-toolbar-title class="text-h6"> Today </v-toolbar-title>
 
                 <!--
 
@@ -238,60 +161,184 @@ async function test() {
 
   <router-view></router-view>
 
-    <h1>May 31st 2023</h1>
-
     <button to="/" @click="test()" class="j">Home</button>
+
+    <body>
 
       <div class="wrapper">
 
-          <p class="current-date">June 2023</p>
+      <header>
+
+        <p class="current-date">June 2023</p>
+
+        <div class="icons">
+          <span id="prev" class="material-symbols-rounded"></span>
+          <span id="next" class="material-symbols-rounded"></span>
+        </div>
+
+      </header>
 
         <div class="calendar">
           <ul class="weeks">
-            <li>Sunday</li>
-            <li>Monday</li>
-            <li>Tuesday</li>
-            <li>Wednesday</li>
-            <li>Thursday</li>
-            <li>Friday</li>
-            <li>Saturday</li>
+            <li>Sun</li>
+            <li>Mon</li>
+            <li>Tue</li>
+            <li>Wed</li>
+            <li>Thur</li>
+            <li>Fri</li>
+            <li>Sat</li>
+          </ul>
+          <ul class="days">
+            <li>28</li>
+            <li>29</li>
+            <li>30</li>
+            <li>31</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li>14</li>
+            <li>15</li>
+            <li>16</li>
+            <li>17</li>
+            <li>18</li>
+            <li>19</li>
+            <li>20</li>
+            <li>21</li>
+            <li>22</li>
+            <li>23</li>
+            <li>24</li>
+            <li>25</li>
+            <li>26</li>
+            <li>28</li>
+            <li>29</li>
+            <li>30</li>
+            <li>31</li>
+
           </ul>
         </div>
 
       </div>
-
-      <v-footer class="bg-indigo-lighten-1 text-center d-flex flex-column">
-        <div>
-          <v-btn v-for="icon in icons" :key="icon" class="mx-4" :icon="icon" variant="text"></v-btn>
-        </div>
-
-        <div class="pt-0">
-          Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-        </div>
-
-        <v-divider></v-divider>
-
-        <div>
-          <strong>Vuetify</strong>
-        </div>
-    </v-footer>
-
+    </body>
 </template>
 
 
 
 <style scoped>
 
-@import url("https://cdn.jsdelivr.net/npm/vuetify@3.3.2/dist/vuetify-labs.css");
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  justify-content: center;
+  min-height: 100vh;
+  background: #9B59B6;
+}
+.wrapper{
+  width: 450px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+.wrapper header{
+  display: flex;
+  align-items: center;
+  padding: 25px 30px 10px;
+  justify-content: space-between;
+}
+header .icons{
+  display: flex;
+}
+header .icons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
+}
 
+.current-date {
+  text-decoration: underline;
+}
 
-  .timenav {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-  }
-
-  .timenav:active {
-    text-decoration: none;
-  }
-
+.icons span:last-child{
+  margin-right: -10px;
+}
+header .icons span:hover{
+  background: #f2f2f2;
+}
+header .current-date{
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+.calendar{
+  padding: 20px;
+}
+.calendar ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+.calendar .days{
+  margin-bottom: 20px;
+}
+.calendar li{
+  color: #333;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+.calendar .weeks li{
+  font-weight: 500;
+  cursor: default;
+}
+.calendar .days li{
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+}
+.days li.inactive{
+  color: #aaa;
+}
+.days li.active{
+  color: #fff;
+}
+.days li::before{
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.days li.active::before{
+  background: #9B59B6;
+}
+.days li:not(.active):hover::before{
+  background: #f2f2f2;
+}
 </style>
